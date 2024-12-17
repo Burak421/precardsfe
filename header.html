@@ -31,11 +31,22 @@
     <!-- cart widget icon -->
     <div class="ec-cart-widget" data-layout="SMALL_ICON_COUNTER" data-show-buy-animation="TRUE"></div>
   </div>
+</nav>  
+
+<!-- Tweede Navbar -->
+<nav class="navbar navbar-expand-lg navbar-two">
+  <div class="container-fluid">
+    <div class="d-flex flex-column flex-md-row align-items-center justify-content-around w-100">
+      <div class="mb-2 mb-md-0"><i style="color:crimson; margin-right: 1em" class="fa-solid fa-clock"></i><strong>Binnen 1 minuut geleverd</strong></div>
+      <div class="mb-2 mb-md-0"><i style="color:crimson; margin-right: 1em" class="fa-solid fa-user-check"></i><strong>Officiële verkoper</strong></div>
+      <div class="mb-2 mb-md-0"><i style="color:crimson; margin-right: 1em" class="fa-solid fa-coins"></i><strong>De laagste servicekosten</strong></div>
+    </div>
+  </div>
 </nav>
 
 <script>
   window.onload = function() {
-    var ecwidProductBrowserURL = "https://burak421.github.io/precardsfe/categorieen.html";
+    var ecwidProductBrowserURL = "https://burak421.github.io/precardsfe/categorieen.html";  // Hier de URL toevoegen
 
     // Voeg Ecwid-script toe
     var ecwidScript = document.createElement('script');
@@ -47,10 +58,15 @@
 
     // Wacht tot het Ecwid script geladen is
     ecwidScript.onload = function() {
-      Ecwid.init();
+      Ecwid.init(); // Initialiseer Ecwid winkel
+
+      // Stel product browser URL in na het laden van Ecwid
       Ecwid.AppApi.setStoreConfig({
-        productBrowserUrl: ecwidProductBrowserURL // Gebruik de eigen URL voor producten
+        productBrowserUrl: ecwidProductBrowserURL  // Geef hier de eigen URL voor producten door
       });
+      
+      // Initialiseer de zoekbalk
+      xSearch("id=my-search-111053264");
     };
   };
 </script>
