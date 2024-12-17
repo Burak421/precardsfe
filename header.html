@@ -31,14 +31,26 @@
     <!-- cart widget icon -->
     <div class="ec-cart-widget" data-layout="SMALL_ICON_COUNTER" data-show-buy-animation="TRUE"></div>
   </div>
+</nav>  
+
+<!-- Tweede Navbar -->
+<nav class="navbar navbar-expand-lg navbar-two">
+  <div class="container-fluid">
+    <div class="d-flex flex-column flex-md-row align-items-center justify-content-around w-100">
+      <div class="mb-2 mb-md-0"><i style="color:crimson; margin-right: 1em" class="fa-solid fa-clock"></i><strong>Binnen 1 minuut geleverd</strong></div>
+      <div class="mb-2 mb-md-0"><i style="color:crimson; margin-right: 1em" class="fa-solid fa-user-check"></i><strong>Officiële verkoper</strong></div>
+      <div class="mb-2 mb-md-0"><i style="color:crimson; margin-right: 1em" class="fa-solid fa-coins"></i><strong>De laagste servicekosten</strong></div>
+    </div>
+  </div>
 </nav>
 
+<!-- Include Ecwid script -->
 <script>
   window.onload = function() {
-    // Stel de URL in voor de productbrowser
+    // Geef de gewenste productpagina URL op
     var ecwidProductBrowserURL = "https://burak421.github.io/precardsfe/categorieen.html";
 
-    // Voeg Ecwid-script toe dynamisch
+    // Voeg Ecwid-script toe
     var ecwidScript = document.createElement('script');
     ecwidScript.src = 'https://app.ecwid.com/script.js?111053264&data_platform=code&data_date=2024-11-20';
     ecwidScript.type = 'text/javascript';
@@ -46,13 +58,12 @@
     ecwidScript.async = true;
     document.body.appendChild(ecwidScript);
 
-    // Initialiseer Ecwid zodra het script geladen is
+    // Wacht tot het Ecwid-script geladen is
     ecwidScript.onload = function() {
+      // Initieer Ecwid winkel
       Ecwid.init();
-      // Stel de pagina-URL voor de productbrowser in
-      Ecwid.AppApi.setStoreConfig({
-        productBrowserUrl: ecwidProductBrowserURL // Vervang door jouw gewenste URL
-      });
+      // Pas de zoekpagina URL aan zodat deze naar je gewenste URL leidt
+      Ecwid.Component.get('searchBar').setSearchPageUrl(ecwidProductBrowserURL);
     };
   };
 </script>
