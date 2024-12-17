@@ -136,7 +136,6 @@
 
 <div id="footer"></div>
 
-
 <script>
     // Eerst de fetch uitvoeren om header in te laden
     fetch('header.html')
@@ -148,20 +147,6 @@
       })
       .then(data => {
         document.getElementById('header').innerHTML = data;
-
-        // Voeg het Ecwid script nu pas toe, nadat de header geladen is
-        var ecwidScript = document.createElement('script');
-        ecwidScript.src = 'https://app.ecwid.com/script.js?111053264&data_platform=code&data_date=2024-11-20';
-        ecwidScript.type = 'text/javascript';
-        ecwidScript.charset = 'utf-8';
-        ecwidScript.async = true;
-        document.body.appendChild(ecwidScript);
-
-        // Wacht tot het Ecwid script geladen is en initialiseer het
-        ecwidScript.onload = function() {
-          Ecwid.init();  // Initialiseer Ecwid winkel
-          xSearch("id=my-search-111053264");  // Zoekbalk initialiseren
-        };
       })
       .catch(error => console.error('Er is een probleem opgetreden met het laden van de header:', error));
 
