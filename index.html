@@ -150,12 +150,18 @@
           // Wacht tot het script geladen is en initialiseert Ecwid
           ecwidScript.onload = function() {
               Ecwid.init();
-  
+
               // Zet de URL voor het browsen van producten (voor zowel zoek als winkelwagen acties)
               var ecwid_ProductBrowserURL = "https://burak421.github.io/precards/categorieen.html"; // Vervang met je eigen URL voor de productpagina
               Ecwid.AppApi.setStoreConfig({
                   productBrowserUrl: ecwid_ProductBrowserURL
               });
+
+              // Voeg handmatige initialisatie voor de zoekbalk toe
+              var searchDiv = document.getElementById("my-search-111053264");
+              if (searchDiv) {
+                  xSearch("id=my-search-111053264");
+              }
           };
       })
       .catch(error => console.error('Er is een probleem opgetreden met het laden van de header:', error));
@@ -168,8 +174,8 @@
           return response.text();
       })
       .then(data => document.getElementById('footer').innerHTML = data)
-      .catch(error => console.error('Er is een probleem opgetreden met het laden van de footer:', error));
-  </script>
+      .catch(error => console.error('Er is een
+
 
 
 <!-- Bootstrap's JavaScript library (including Popper.js) from a CDN -->
