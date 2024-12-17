@@ -1,0 +1,81 @@
+ /* searchbar */
+ div.ecwid-search-widget input[type="text"] {
+	width: 200px !important;  /* Brede zoekbalk */
+	height: 30px !important;
+	border: 2px solid #ccc;  /* De randkleur, kan aangepast worden */
+	border-radius: 10px !important;  /* Maakt de hoeken ovaal */
+	padding: 5px;  /* Voegt wat ruimte toe in de zoekbalk, kan aangepast worden */
+}
+
+@media (max-width: 768px) {
+	div.ecwid-search-widget input[type="text"] {
+			width: 150px !important; /* Zoekbalk wordt smaller */
+			height: 25px !important;
+			font-size: 14px !important;
+	}
+}
+
+/* Logo Website */
+#navbarimg {
+	width: 12rem;
+}
+
+@media (max-width: 768px) {
+	#navbarimg {
+		width: 10rem;
+	}
+}
+
+/* Eerste Navbar */
+.navbar-one {
+position: sticky !important;
+top: 0 !important;;
+z-index: 1030 !important; /* Hogere waarde zodat hij altijd boven andere elementen blijft */
+background-color:#F3D7CA !important; /* Aangepaste kleur */
+}
+
+.navbar-expand-lg {
+position: sticky !important;
+top: 56px !important; /* Zorg ervoor dat de eerste navbar wordt gerespecteerd */
+z-index: 1020 !important; /* Lagere waarde, zodat deze onder de navbar-one blijft */
+}
+
+/* Tweede Navbar */
+.navbar-two {
+background-color:#F5EEE6 !important; /* Aangepaste kleur */
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Subtiele schaduw */
+border-radius: 5px; /* Ronde hoeken voor een zachtere uitstraling */
+transition: all 0.3s ease; /* Zorg voor een zachte overgang bij hover */
+}
+
+/* categories navigation bar */
+.horizontal-menu {
+padding: 0 !important;
+border: none !important;
+background-color: #CDF5FD !important;
+}
+
+/* List container for the menu */
+.horizontal-menu-parent {
+display: flex !important; /* Horizontal layout */
+list-style: none !important; /* Remove bullet points */
+margin: 0 !important;
+padding: 10px 10px !important;
+gap: 30px !important; /* Space between items */
+}
+
+/* Style for links */
+.horizontal-menu-item a {
+text-decoration: none !important; /* Remove underline */
+color: #333 !important; /* Text color */
+font-size: 16px !important;
+padding: 6px 6px !important;
+transition: background-color 0.3s, color 0.3s !important;
+}
+
+/* Hover effect */
+.horizontal-menu-item a:hover {
+background-color: #007bff !important; /* Blue background */
+color: #fff !important; /* White text */
+border-radius: 10px !important;
+}
