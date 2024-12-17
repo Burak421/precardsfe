@@ -31,12 +31,10 @@
     <!-- cart widget icon -->
     <div class="ec-cart-widget" data-layout="SMALL_ICON_COUNTER" data-show-buy-animation="TRUE"></div>
   </div>
-</nav>  
+</nav>
 
-<!-- Include Ecwid script -->
 <script>
   window.onload = function() {
-    // Geef de gewenste productpagina URL op
     var ecwidProductBrowserURL = "https://burak421.github.io/precardsfe/categorieen.html";
 
     // Voeg Ecwid-script toe
@@ -47,18 +45,11 @@
     ecwidScript.async = true;
     document.body.appendChild(ecwidScript);
 
-    // Wacht tot het Ecwid-script geladen is
+    // Wacht tot het Ecwid script geladen is
     ecwidScript.onload = function() {
-      // Initieer Ecwid winkel
       Ecwid.init();
-      
-      // Zorg ervoor dat de zoekbalk en winkelwagen goed geladen worden
-      xSearch("id=my-search-111053264"); // Zoekbalk initialiseren
-      Ecwid.CartWidget.render();  // Render de winkelwagen
-
-      // Stel de productpagina URL in voor de producten
       Ecwid.AppApi.setStoreConfig({
-        productBrowserUrl: ecwidProductBrowserURL // Geef de gewenste URL van je productbrowser door
+        productBrowserUrl: ecwidProductBrowserURL // Gebruik de eigen URL voor producten
       });
     };
   };
