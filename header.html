@@ -1,3 +1,5 @@
+<!-- Header content -->
+
 <!-- Eerste Navbar -->
 <nav class="navbar bg-light sticky-top mt-0 py-0">
   <div class="container-fluid d-flex align-items-center g-0">
@@ -25,16 +27,15 @@
       </li>
     </ul> 
     
-    <!-- searchbar -->
+    <!-- Zoekbalk -->
     <div id="my-search-111053264"></div>
 
-
-    <!-- cart widget icon -->
+    <!-- Winkelwagen widget -->
     <div class="ec-cart-widget" data-layout="SMALL_ICON_COUNTER" data-show-buy-animation="TRUE"></div>
   </div>
-</nav>  
+</nav>
 
-<!-- Tweede Navbar -->
+<!-- Second Navbar -->
 <nav class="navbar navbar-expand-lg navbar-two">
   <div class="container-fluid">
     <div class="d-flex flex-column flex-md-row align-items-center justify-content-around w-100">
@@ -45,11 +46,24 @@
   </div>
 </nav>
 
-<!-- Zorg ervoor dat de Ecwid-scripts onderaan de pagina staan -->
+<!-- Voeg hier het Ecwid script toe zodat het meteen beschikbaar is -->
+<script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?111053264&data_platform=code&data_date=2024-11-20" charset="utf-8"></script>
+
 <script>
-	window.onload = function() {
+  window.onload = function() {
+    // Initialiseer Ecwid zodra het script is geladen
     Ecwid.init();
-		xSearch("id=my-search-111053264");
+
+    // Stel de zoekfunctionaliteit in
+    xSearch("id=my-search-111053264");
+
+    // Configuratie voor het niet tonen van pop-ups maar navigeren naar pagina's
+    var ecwidProductBrowserURL = "https://burak421.github.io/precards/categorieen.html"; // Productpagina URL
+    var ecwidCartURL = "https://burak421.github.io/precards/winkelwagen.html"; // Winkelwagenpagina URL
+
+    Ecwid.AppApi.setStoreConfig({
+      productBrowserUrl: ecwidProductBrowserURL,
+      cartUrl: ecwidCartURL
+    });
   };
 </script>
-
