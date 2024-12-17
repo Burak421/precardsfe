@@ -151,6 +151,19 @@
       ecwidScript.onload = function() {
         Ecwid.init();  // Initialiseer Ecwid winkel
         xSearch("id=my-search-111053264");  // Zoekbalk initialiseren
+
+        // Stel de Ecwid URL-configuraties in
+        var ecwidProductBrowserURL = "https://burak421.github.io/precards/categorieen.html"; // Gebruik de eigen URL voor je productpagina
+        Ecwid.AppApi.setStoreConfig({
+          productBrowserUrl: ecwidProductBrowserURL,  // URL voor de productbrowsers
+          cartUrl: "https://burak421.github.io/precards/winkelwagen.html" // URL voor de winkelwagenpagina
+        });
+
+        // Pas de zoekfunctionaliteit aan zodat deze naar een zoekpagina leidt
+        var ecwidSearchUrl = "https://burak421.github.io/precards/zoeken.html"; // Zoekresultatenpagina URL
+        xSearch("id=my-search-111053264", function(searchTerm) {
+          window.location.href = ecwidSearchUrl + "?q=" + encodeURIComponent(searchTerm);
+        });
       };
     })
     .catch(error => console.error('Er is een probleem opgetreden met het laden van de header:', error));
@@ -166,6 +179,7 @@
     .then(data => document.getElementById('footer').innerHTML = data)
     .catch(error => console.error('Er is een probleem opgetreden met het laden van de footer:', error));
 </script>
+
 
 <!-- Bootstrap's JavaScript library (including Popper.js) from a CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
