@@ -140,50 +140,47 @@ div.ecwid-search-widget input[type="text"] {
 
 <div id="footer"></div>
 
+
 <script>
-fetch('header.html')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.text();
-  })
-  .then(data => {
-    document.getElementById('header').innerHTML = data;
-
-    // Definieer de URL voor de productpagina's die je wilt tonen
-    var ecwidProductBrowserURL = "https://burak421.github.io/precardsfe/categorieen.html";
-
-    var ecwidScript = document.createElement('script');
-    ecwidScript.src = 'https://app.ecwid.com/script.js?111053264&data_platform=code&data_date=2024-11-20';
-    ecwidScript.type = 'text/javascript';
-    ecwidScript.charset = 'utf-8';
-    ecwidScript.async = true;
-    document.body.appendChild(ecwidScript);
-
-    ecwidScript.onload = function() {
-      Ecwid.init();  // Initialiseer de Ecwid winkel
-
-      // Stuur zoekresultaten naar de gewenste categoriepagina in plaats van een pop-up
-      // Wanneer een gebruiker een zoekterm invoert, wordt hij doorgestuurd naar de productcategorieen-pagina
-      xSearch("id=my-search-111053264");  // Zoekbalk initialiseren
-      
-      // Redirection functie toevoegen voor de zoekresultaten
-      var searchInput = document.querySelector('input.ecwid-search-widget input[type="text"]');
-      searchInput.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {  // Zorg ervoor dat de Enter-toets wordt gebruikt voor het zoeken
-          // Redirect naar de categoriepagina met zoekparameters
-          var searchQuery = searchInput.value;
-          if (searchQuery) {
-            window.location.href = ecwidProductBrowserURL + '?search=' + encodeURIComponent(searchQuery);
-          }
+    // Eerst de fetch uitvoeren om header in te laden
+    fetch('header.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-      });
-    };
-  })
-  .catch(error => console.error('Er is een probleem opgetreden met het laden van de header:', error));
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+        // Voeg het Ecwid script nu pas toe, nadat de header geladen is
+        var ecwidScript = document.createElement('script');
+        ecwidScript.src = 'https://app.ecwid.com/script.js?111053264&data_platform=code&data_date=2024-11-20';
+        ecwidScript.type = 'text/javascript';
+        ecwidScript.charset = 'utf-8';
+        ecwidScript.async = true;
+        document.body.appendChild(ecwidScript);
 
+        // Wacht tot het Ecwid script geladen is en initialiseer het
+        ecwidScript.onload = function() {
+          Ecwid.init();  // Initialiseer Ecwid winkel
+          xSearch("id=my-search-111053264");  // Zoekbalk initialiseren
+        };
+      })
+      .catch(error => console.error('Er is een probleem opgetreden met het laden van de header:', error));
 
+    // Fetch voor de footer
+    fetch('footer.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(data => document.getElementById('footer').innerHTML = data)
+      .catch(error => console.error('Er is een probleem opgetreden met het laden van de footer:', error));
+  </script>
+
+  <script>var ecwidProductBrowserURL = "https://burak421.github.io/precardsfe/categorieen.html";</script>
 <!-- Bootstrap's JavaScript library (including Popper.js) from a CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
