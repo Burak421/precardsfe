@@ -127,28 +127,50 @@
 <div id="footer"></div>
 
 
-<script>var ecwid_ProductBrowserURL = "https://burak421.github.io/precards/categorieen.html";</script>
 <script>
-fetch('header.html')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.text();
-    })
-    .then(data => document.getElementById('header').innerHTML = data)
-    .catch(error => console.error('Er is een probleem opgetreden met het laden van de header:', error));
+  fetch('header.html')
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.text();
+      })
+      .then(data => {
+          // Injecteer de inhoud in de header
+          document.getElementById('header').innerHTML = data;
+  
+          // Voeg het Ecwid-script dynamisch toe nadat de header geladen is
+          var ecwidScript = document.createElement('script');
+          ecwidScript.src = 'https://app.ecwid.com/script.js?111053264&data_platform=code&data_date=2024-11-20';
+          ecwidScript.type = 'text/javascript';
+          ecwidScript.charset = 'utf-8';
+          ecwidScript.async = true;
+          document.body.appendChild(ecwidScript);
+  
+          // Wacht tot het script geladen is en initialiseert Ecwid
+          ecwidScript.onload = function() {
+              Ecwid.init();
+  
+              // Zet de URL voor het browsen van producten (voor zowel zoek als winkelwagen acties)
+              var ecwid_ProductBrowserURL = "https://burak421.github.io/precards/categorieen.html"; // Vervang met je eigen URL voor de productpagina
+              Ecwid.AppApi.setStoreConfig({
+                  productBrowserUrl: ecwid_ProductBrowserURL
+              });
+          };
+      })
+      .catch(error => console.error('Er is een probleem opgetreden met het laden van de header:', error));
+  
+  fetch('footer.html')
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.text();
+      })
+      .then(data => document.getElementById('footer').innerHTML = data)
+      .catch(error => console.error('Er is een probleem opgetreden met het laden van de footer:', error));
+  </script>
 
-fetch('footer.html')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.text();
-    })
-    .then(data => document.getElementById('footer').innerHTML = data)
-    .catch(error => console.error('Er is een probleem opgetreden met het laden van de footer:', error));
-</script>
 
 <!-- Bootstrap's JavaScript library (including Popper.js) from a CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
