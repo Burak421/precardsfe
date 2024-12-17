@@ -19,23 +19,18 @@
 <!-- Custom-CSS --> <link rel="stylesheet" href="css/main.css">
 <!--JavaScript-AOS--> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 <!-- Font-Awesome--> <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-
-<!-- Ecwid Core Script -->
-<script data-cfasync="false" type="text/javascript" 
-        src="https://app.ecwid.com/script.js?111053264&data_platform=code" 
-        charset="utf-8" defer></script>
-
-	
-	<style>
+<style>
   /* Standaard stijl (voor grote schermen) */
-div.ecwid-search-widget input[type="text"] {
-    width: 200px !important;  /* Brede zoekbalk */
-    height: 25px !important;
-    border: 2px solid #ccc;  /* De randkleur, kan aangepast worden */
-    border-radius: 25px !important;  /* Maakt de hoeken ovaal */
-    padding: 5px;  /* Voegt wat ruimte toe in de zoekbalk, kan aangepast worden */
+ input.ecwid-search-widget__input[type="text"] {
+    width: 100%; /* Breedte aanpassen */
+    height: 40px; /* Hoogte aanpassen */
+    border: 2px solid #007BFF; /* Blauwe rand */
+    border-radius: 20px; /* Afronding voor een ovale vorm */
+    padding: 0 15px; /* Binnenruimte toevoegen */
+    font-size: 16px; /* Tekstgrootte aanpassen */
+    outline: none; /* Rand verwijderen bij focus */
+    transition: all 0.3s ease; /* Animatie voor hover/focus */
 }
-
   
   /* Voor middelgrote schermen (bijvoorbeeld tablets) */
   @media (max-width: 768px) {
@@ -187,8 +182,9 @@ div.ecwid-search-widget input[type="text"] {
       .catch(error => console.error('Er is een probleem opgetreden met het laden van de footer:', error));
   </script>
 
-  <script>var ecwidProductBrowserURL = "https://burak421.github.io/precardsfe/categorieen.html";</script>
-<!-- Bootstrap's JavaScript library (including Popper.js) from a CDN -->
+<script>var ecwid_ProductBrowserURL = "https://burak421.github.io/precardsfe/categorieen.html";</script>
+
+  <!-- Bootstrap's JavaScript library (including Popper.js) from a CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
   <!-- AOS JavaScript -->
