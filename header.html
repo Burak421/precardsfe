@@ -35,8 +35,6 @@
 
 <script>
   window.onload = function() {
-    var ecwidProductBrowserURL = "https://burak421.github.io/precardsfe/categorieen.html";
-
     // Voeg Ecwid-script toe
     var ecwidScript = document.createElement('script');
     ecwidScript.src = 'https://app.ecwid.com/script.js?111053264&data_platform=code&data_date=2024-11-20';
@@ -48,9 +46,6 @@
     // Wacht tot het Ecwid script geladen is
     ecwidScript.onload = function() {
       Ecwid.init();
-      Ecwid.AppApi.setStoreConfig({
-        productBrowserUrl: ecwidProductBrowserURL // Gebruik de eigen URL voor producten
-      });
     };
   };
 </script>
