@@ -17,47 +17,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
 <!-- Bootstrap-CDN --> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <!-- Custom-CSS --> <link rel="stylesheet" href="css/main.css">
+<!-- Custom-CSS --> <link rel="stylesheet" href="css/index.css">
 <!--JavaScript-AOS--> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 <!-- Font-Awesome--> <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-<style>
-  /* Standaard stijl (voor grote schermen) */
- div.ecwid-search-widget input[type="text"] {
-    width: 200px !important;  /* Brede zoekbalk */
-    height: 25px !important;
-    border: 2px solid #ccc;  /* De randkleur, kan aangepast worden */
-    border-radius: 25px !important;  /* Maakt de hoeken ovaal */
-    padding: 5px;  /* Voegt wat ruimte toe in de zoekbalk, kan aangepast worden */
-}
-
-  /* Logo Website */
-  #navbarimg {
-    width: 12rem;
-  }
-
-  @media (max-width: 767px) {
-    #navbarimg {
-      width: 100px;
-    }
-  }
-
-/* Tweede Navbar */
-.navbar-two {
-  background-color: #f1f1f1 !important; /* Aangepaste kleur */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Subtiele schaduw */
-  border-radius: 5px; /* Ronde hoeken voor een zachtere uitstraling */
-  transition: all 0.3s ease; /* Zorg voor een zachte overgang bij hover */
-}
-
-/*Ingesloten producten*/
-</style>
-  
 </head>
-<body class="bg-light" id="body-index">
 
-    <div id="header"></div>
-    
-  <!-- Tweede Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-two">
+<body class="bg-light" id="body-index">
+  <!--  Navbar -->
+  <!-- <nav class="navbar navbar-expand-lg navbar-two">
     <div class="container-fluid">
       <div class="d-flex flex-column flex-md-row align-items-center justify-content-around w-100">
         <div class="mb-2 mb-md-0"><i style="color:crimson; margin-right: 1em" class="fa-solid fa-clock"></i><strong>Binnen 1 minuut geleverd</strong></div>
@@ -65,7 +32,9 @@
         <div class="mb-2 mb-md-0"><i style="color:crimson; margin-right: 1em" class="fa-solid fa-coins"></i><strong>De laagste servicekosten</strong></div>
       </div>
     </div>
-  </nav>
+  </nav> -->
+
+  <div id="header"></div>
 
 			<main>
           <div class="container-fluid">
@@ -73,7 +42,7 @@
             <!-- Eerste container (links) -->
             <div class="col-md-6">
               <div class="container">
-                <a href="categorieen.html"><img class="img-fluid" src="img/giftkaarten bundel1.png" alt="Giftkaarten"></a>
+                <a href="shop.html"><img class="img-fluid" src="img/giftkaarten bundel1.png" alt="Giftkaarten"></a>
               </div>
             </div>
             
@@ -93,7 +62,7 @@
       <div style="border: 2px solid rgba(0, 0, 0, 0.1); border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
           <div class="mt-3 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
               <div id="my-store-111053264"></div>
-              <script>var ecwid_ProductBrowserURL = "https://burak421.github.io/precards/categorieen.html";</script>
+              <script>var ecwid_ProductBrowserURL = "https://burak421.github.io/precards/shop.html";</script>
               <script type="text/javascript">
                   xProductBrowser("id=my-store-111053264", "defaultCategoryId=173228231");
               </script>
@@ -138,8 +107,9 @@
 
         // Wacht tot het Ecwid script geladen is en initialiseer het
         ecwidScript.onload = function() {
-          Ecwid.init();  // Initialiseer Ecwid winkel
-          xSearch("id=my-search-111053264");  // Zoekbalk initialiseren
+          Ecwid.init();  // Ecwid winkel
+          xSearch("id=my-search-111053264");  // Ecwid Zoekbalk
+          xCategoriesV2("id=my-categories-111053264"); //Ecwid categorieën
         };
       })
       .catch(error => console.error('Er is een probleem opgetreden met het laden van de header:', error));
@@ -156,7 +126,7 @@
       .catch(error => console.error('Er is een probleem opgetreden met het laden van de footer:', error));
   </script>
 
-<script>var ecwid_ProductBrowserURL = "https://burak421.github.io/precardsfe/categorieen.html";</script>
+<script>var ecwid_ProductBrowserURL = "shop.html";</script>
 
   <!-- Bootstrap's JavaScript library (including Popper.js) from a CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
