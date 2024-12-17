@@ -51,8 +51,15 @@
     ecwidScript.onload = function() {
       // Initieer Ecwid winkel
       Ecwid.init();
-      // Pas de zoekpagina URL aan zodat deze naar je gewenste URL leidt
-      Ecwid.Component.get('searchBar').setSearchPageUrl(ecwidProductBrowserURL);
+      
+      // Zorg ervoor dat de zoekbalk en winkelwagen goed geladen worden
+      xSearch("id=my-search-111053264"); // Zoekbalk initialiseren
+      Ecwid.CartWidget.render();  // Render de winkelwagen
+
+      // Stel de productpagina URL in voor de producten
+      Ecwid.AppApi.setStoreConfig({
+        productBrowserUrl: ecwidProductBrowserURL // Geef de gewenste URL van je productbrowser door
+      });
     };
   };
 </script>
